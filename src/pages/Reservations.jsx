@@ -127,7 +127,7 @@ const Reservations = () => {
                                     onChange={handleChange}
                                     required
                                     className="w-full px-5 py-4 bg-white/10 border-2 border-white/20 rounded-xl focus:outline-none focus:border-yellow-500 focus:bg-white/15 text-white placeholder-gray-400 transition-all duration-300 group-hover:border-white/30"
-                                    placeholder="John Doe"
+                                    placeholder="Your Name"
                                 />
                             </div>
 
@@ -141,7 +141,7 @@ const Reservations = () => {
                                     onChange={handleChange}
                                     required
                                     className="w-full px-5 py-4 bg-white/10 border-2 border-white/20 rounded-xl focus:outline-none focus:border-yellow-500 focus:bg-white/15 text-white placeholder-gray-400 transition-all duration-300 group-hover:border-white/30"
-                                    placeholder="john@example.com"
+                                    placeholder="xyz@example.com"
                                 />
                             </div>
 
@@ -155,7 +155,7 @@ const Reservations = () => {
                                     onChange={handleChange}
                                     required
                                     className="w-full px-5 py-4 bg-white/10 border-2 border-white/20 rounded-xl focus:outline-none focus:border-yellow-500 focus:bg-white/15 text-white placeholder-gray-400 transition-all duration-300 group-hover:border-white/30"
-                                    placeholder="+1 (555) 123-4567"
+                                    placeholder="+91 xxxxxxxxxx"
                                 />
                             </div>
 
