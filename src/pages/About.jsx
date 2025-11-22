@@ -12,7 +12,7 @@ const About = () => {
                 />
                 <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
                     <div className="text-center text-white">
-                        <h1 className="text-6xl font-bold mb-4 font-serif">About Goldleaf Dining</h1>
+                        <h1 className="text-6xl font-bold mb-4 font-serif mt-20">About Goldleaf Dining</h1>
                         <p className="text-xl">Authentic Indian Cuisine Since 2024</p>
                     </div>
                 </div>
@@ -142,7 +142,7 @@ const About = () => {
                             />
                         </div>
                         <div>
-                            <h2 className="text-4xl font-bold text-gray-900 mb-6">Meet Our Chef</h2>
+                            <h2 className="text-6xl font-bold text-gray-900 mb-6">Meet Our Chef</h2>
                             <div className="w-24 h-1 bg-yellow-500 mb-8"></div>
                             <p className="text-gray-600 text-lg leading-relaxed mb-6">
                                 Chef Rajesh Kumar brings over 20 years of culinary expertise, having trained in the finest kitchens across India. His passion for authentic Indian cuisine and innovative cooking techniques has earned him recognition throughout the culinary world.

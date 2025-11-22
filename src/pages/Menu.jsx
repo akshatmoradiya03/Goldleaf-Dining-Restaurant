@@ -68,37 +68,47 @@ const Menu = () => {
     const displayItems = getFilteredItems();
 
     return (
-        <div className="pt-1 bg-gray-50 min-h-screen pb-10" data-scroll-section>
-            <div className="relative mb-16 h-80">
-                <div className="absolute inset-0 z-0 rounded-md">
+        <div className="pt-16 bg-gray-50 min-h-screen pb-10" data-scroll-section>
+            {/* Header with Background Image */}
+            <div className="relative h-48 sm:h-64 lg:h-80 mb-8 sm:mb-12 lg:mb-16 overflow-hidden">
+                <div className="absolute inset-0">
                     <img
                         src="https://imgs.search.brave.com/kCSuD1NDcl9gUyxlfqM7Eq1fd3a3-oRr7Og1Re6aNJ0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/Y3JlYXRlLnZpc3Rh/LmNvbS9hcGkvbWVk/aWEvc21hbGwvMTc0/MzY5NjIyL3N0b2Nr/LXBob3RvLW1lbnUt/YW5kLXRlYS1zZXQ"
-                        alt="Menu Background"
+                        alt="Menu Header"
                         className="w-full h-full object-cover"
                     />
+                    <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]"></div>
+                </div>
+                <div className="relative container mx-auto px-4 h-full flex flex-col justify-center items-center text-center">
+                    <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 font-serif animate-fade-in-up">
+                        Our Menu
+                    </h1>
+                    <p className="text-yellow-400 text-sm sm:text-lg tracking-widest uppercase animate-fade-in-up delay-100">
+                        Authentic Flavors & Culinary Excellence
+                    </p>
                 </div>
             </div>
 
-            <div className="container mx-auto px-6 mb-8">
+            <div className="container mx-auto px-4 sm:px-6 mb-6 sm:mb-8">
                 <div className="max-w-2xl mx-auto">
                     <input
                         type="text"
                         placeholder="Search for dishes..."
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
-                        className="w-full px-6 py-4 rounded-full border-2 border-gray-200 focus:border-yellow-500 focus:outline-none text-gray-700 shadow-md transition-all duration-300"
+                        className="w-full px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base rounded-full border-2 border-gray-200 focus:border-yellow-500 focus:outline-none text-gray-700 shadow-md transition-all duration-300"
                     />
                 </div>
             </div>
 
             {!searchQuery && (
-                <div className="container mx-auto px-6 mb-12">
-                    <div className="flex justify-center gap-4 flex-wrap">
+                <div className="container mx-auto px-4 sm:px-6 mb-8 sm:mb-12">
+                    <div className="flex justify-center gap-2 sm:gap-4 flex-wrap">
                         {menuItems.map((section) => (
                             <button
                                 key={section.category}
                                 onClick={() => setActiveTab(section.category)}
-                                className={`px-8 py-3 rounded-full font-semibold uppercase tracking-wider text-sm transition-all duration-300 ${activeTab === section.category
+                                className={`px-4 sm:px-6 lg:px-8 py-2 sm:py-3 rounded-full font-semibold uppercase tracking-wider text-xs sm:text-sm transition-all duration-300 ${activeTab === section.category
                                     ? 'bg-yellow-500 text-white shadow-lg scale-105'
                                     : 'bg-white text-gray-700 hover:bg-gray-100 shadow-md'
                                     }`}
@@ -110,45 +120,45 @@ const Menu = () => {
                 </div>
             )}
 
-            <div className="container mx-auto px-6">
+            <div className="container mx-auto px-4 sm:px-6">
                 <div className="max-w-7xl mx-auto">
                     {displayItems.length > 0 ? (
                         <div className="animate-fade-in">
                             {!searchQuery && (
-                                <h3 className="text-4xl font-bold text-gray-900 mb-12 text-center">
+                                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-8 sm:mb-12 text-center">
                                     <span className="border-b-4 border-yellow-500 pb-2">{activeCategory?.category}</span>
                                 </h3>
                             )}
                             {searchQuery && (
-                                <h3 className="text-2xl font-semibold text-gray-700 mb-8 text-center">
+                                <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold text-gray-700 mb-6 sm:mb-8 text-center">
                                     Found {displayItems.length} dish{displayItems.length !== 1 ? 'es' : ''} matching "{searchQuery}"
                                 </h3>
                             )}
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
                                 {displayItems.map((item) => (
                                     <div key={item.name} className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
-                                        <div className="h-56 overflow-hidden">
+                                        <div className="h-48 sm:h-56 overflow-hidden">
                                             <img src={item.image} alt={item.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                                         </div>
-                                        <div className="p-6">
-                                            <div className="flex justify-between items-start mb-3">
+                                        <div className="p-4 sm:p-6">
+                                            <div className="flex justify-between items-start mb-2 sm:mb-3">
                                                 <div>
-                                                    <h4 className="text-xl font-bold text-gray-900">{item.name}</h4>
+                                                    <h4 className="text-lg sm:text-xl font-bold text-gray-900">{item.name}</h4>
                                                     {searchQuery && item.category && (
                                                         <span className="text-xs text-yellow-600 font-semibold">{item.category}</span>
                                                     )}
                                                 </div>
-                                                <span className="text-yellow-600 font-bold text-xl">{item.price}</span>
+                                                <span className="text-yellow-600 font-bold text-lg sm:text-xl">{item.price}</span>
                                             </div>
-                                            <p className="text-gray-600 text-sm leading-relaxed">{item.description}</p>
+                                            <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">{item.description}</p>
                                         </div>
                                     </div>
                                 ))}
                             </div>
                         </div>
                     ) : (
-                        <div className="text-center py-20">
-                            <p className="text-gray-500 text-xl">No dishes found matching "{searchQuery}"</p>
+                        <div className="text-center py-12 sm:py-20">
+                            <p className="text-gray-500 text-base sm:text-xl px-4">No dishes found matching "{searchQuery}"</p>
                         </div>
                     )}
                 </div>

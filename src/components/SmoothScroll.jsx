@@ -15,18 +15,25 @@ const SmoothScroll = ({ children }) => {
         locomotiveScrollRef.current = new LocomotiveScroll({
             el: scrollRef.current,
             smooth: true,
-            smoothMobile: false,
+            smoothMobile: true, // Enabled for mobile
             resetNativeScroll: true,
-            lerp: 0.1, // Lower value = smoother but slower
+            lerp: 0.1,
             multiplier: 1,
             class: 'is-inview',
             tablet: {
-                smooth: false,
+                smooth: true, // Enabled for tablet
                 breakpoint: 1024
             },
             smartphone: {
-                smooth: false
+                smooth: true // Enabled for smartphone
             }
+        });
+
+        // Dispatch custom scroll event for Navbar
+        locomotiveScrollRef.current.on('scroll', (args) => {
+            const scrollY = args.scroll.y;
+            const event = new CustomEvent('loco-scroll', { detail: { scrollY } });
+            window.dispatchEvent(event);
         });
 
         // Small delay to ensure proper initialization
